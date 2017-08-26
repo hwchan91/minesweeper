@@ -1,0 +1,36 @@
+.box {
+  border: 3px solid black;
+  display: table;
+  collapse-border: collapse;
+}
+
+.pixel {
+  float: left;
+  border: 1px solid grey;
+  height: 30px;
+  width: 30px;
+  margin: 0px 0px !important;
+  padding: 0px 0px !important;
+}
+
+.rows {
+  margin-bottom: 0px;
+  margin-top: 0px;
+  clear:both;
+}
+
+.active {
+  background-color: black;
+}
+
+.gameover {
+  margin-left: 300px;
+  display: none;
+}
+
+.restart {
+  width: 100px;
+  height: 20px;
+  border: 1px solid black;
+  text-align: center;
+}
