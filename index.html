@@ -7,18 +7,32 @@
   <script type="text/javascript" src="js/main.js"></script>
 
 </head>
-<body>
-<div>
-<div class="restart">
-  Restart
-</div>
-<p>
- Score: <span class="score">0</span>; Level: <span class="level">1</span>
- <span class="gameover">
-    Game Over
-  </span>
-</p>
+<body oncontextmenu="return false;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 main">
 
-<div class="box"></div>
-</div>
+        <div class="row count_bar">
+          <div class="col-xs-4">
+            Flags left: <span class="flags_left"></span>
+          </div>
+          <div class="col-xs-4">
+            <div class="restart">Restart</div>
+          </div>
+          <div class="col-xs-4 timer_display">
+            Time passed: <span class="timer">0</span>
+          </div>
+        </div> <!-- count_bar -->
+
+        <div class="box"></div>
+        <div class="game_end text-center">
+          <span class="gameover">Game Over</span>
+          <span class="win">You Win!</span>
+        </div>
+
+
+
+      </div> <!--span8 -->
+    </div> <!--row -->
+  </div> <!--container -->
 </body>

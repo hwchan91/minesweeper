@@ -1,16 +1,37 @@
+.count_bar{
+  width: 600px;
+  margin: auto;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.timer_display {
+  float: right;
+  text-align: right;
+}
+
 .box {
-  border: 3px solid black;
+  border: 3px solid grey;
   display: table;
   collapse-border: collapse;
+  margin: auto;
+
 }
 
 .pixel {
+  position: relative;
+  overflow: hidden;
   float: left;
-  border: 1px solid grey;
-  height: 30px;
-  width: 30px;
-  margin: 0px 0px !important;
-  padding: 0px 0px !important;
+  width: 20px;
+  height: 20px;
+  border: 3px dotted #c905c6;
+  border-image-source: linear-gradient(135deg, white 25%, #5e5d5d 75%);
+  border-image-slice: 6;
+  background-color: #c1bdbd;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .rows {
@@ -20,17 +41,87 @@
 }
 
 .active {
-  background-color: black;
+  border: 1px solid #5e5d5d;
+  background-color: #c1bdbd;
+
 }
 
-.gameover {
-  margin-left: 300px;
-  display: none;
+.num1 {
+  color: blue;
 }
+
+.num2 {
+  color: green;
+}
+
+.num3 {
+  color: red;
+}
+
+.num4 {
+  color: purple;
+}
+
+.num5 {
+  color: brown;
+}
+
+.num6 {
+  color: cyan;
+}
+
+.num7 {
+  color: black;
+}
+
+.num8 {
+  color: #d1d1d1;
+}
+
+.mine_clicked {
+  background-color: red;
+  border: 1px solid red;
+}
+
+.flag img {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 5px;
+}
+
+.gameover, .win {
+  display: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+}
+
 
 .restart {
   width: 100px;
   height: 20px;
   border: 1px solid black;
   text-align: center;
+  margin: auto;
+}
+
+.cross:before, .cross:after {
+    z-index: 1;
+    position: absolute;
+    content: '';
+    background: red;
+    display: block;
+    top: 8px;
+    left: -7px;
+    width: 28px;
+    height: 1px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+
+    margin: auto;
+}
+
+.cross:after {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
