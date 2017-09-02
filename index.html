@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -8,31 +9,25 @@
 
 </head>
 <body oncontextmenu="return false;">
-  <div class="container">
+  <div class="container-full">
     <div class="row">
-      <div class="col-md-10 col-md-offset-1 main">
 
+      <div class="board">
+        <div class="title">MINESWEEPER</div>
         <div class="row count_bar">
-          <div class="col-xs-4">
-            Flags left: <span class="flags_left"></span>
-          </div>
-          <div class="col-xs-4">
-            <div class="restart">Restart</div>
-          </div>
-          <div class="col-xs-4 timer_display">
-            Time passed: <span class="timer">0</span>
-          </div>
+          <span class="flags_left"></span>
+          <div class="restart"><span class="glyphicon glyphicon-repeat"></span></div>
+          <span class="timer"></span>
         </div> <!-- count_bar -->
-
         <div class="box"></div>
-        <div class="game_end text-center">
-          <span class="gameover">Game Over</span>
-          <span class="win">You Win!</span>
-        </div>
+      </div>
 
+<!--
+      <div class="game_end text-center">
+        <span class="gameover">Game Over</span>
+        <span class="win">You Win!</span>
+      </div>  -->
 
-
-      </div> <!--span8 -->
     </div> <!--row -->
   </div> <!--container -->
 </body>

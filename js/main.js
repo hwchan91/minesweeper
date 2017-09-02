@@ -1,24 +1,26 @@
 $(function(){
-  var grid, row, col, mines_array, flags_array, game_end, time, timer;
+  var grid, row, col, total_mines, mines_array, flags_array, game_end, time, timer, win;
   $.when(newGame()).then(activateRestart());
 
   function newGame() {
-    game_start = false
     console.log("init")
     gameEnd();
     $('.gameover').hide();
     $('.win').hide();
-    $('.timer').text("0");
+    $('.timer').text("000").css("color", "red");
+    $('.flags_left').text("099").css("color", "red");
     grid = [];
     row = 18;
     col = 30;
+    total_mines = 99;
     mines_array = [];
     flags_array = [];
     game_end = false;
+    win = false;
     time = -1;
     initGrid();
-    clickListener();
     $('.pixel').on('click', start_timer)
+    clickListener();
   }
 
   function activateRestart() {
@@ -27,7 +29,7 @@ $(function(){
 
   function start_timer() {
     $('.pixel').off('click', start_timer)
-    count_time()
+    if (!game_end) {count_time()}
   }
 
   function initGrid() {
@@ -35,7 +37,7 @@ $(function(){
     newMines();
     calcMines();
     makeGrid();
-    $('.flags_left').text(mines_array.length - flags_array.length)
+    $('.flags_left').text(numerize(mines_array.length - flags_array.length))
   }
 
   function newGrid() {
@@ -59,7 +61,8 @@ $(function(){
   }
 
   function newMines(){
-    var no_of_mines = row * col * 0.15
+//    var no_of_mines = row * col * 0.15
+    var no_of_mines = total_mines
     for(var i = 0; i < row; i++) {
       for(var j = 0; j < col; j++) {
         var cells_left = (row - i) * col - j;
@@ -234,6 +237,10 @@ $(function(){
     game_end = true
     clearTimeout(timer);
     $('.pixel').off('mousedown', pixelListener);
+    if (win == true) {
+      $('.flags_left').text("you").css("color", "#2ad641");
+      $('.timer').text("win").css("color", "#2ad641");
+    }
   }
 
   function flags_left() {
@@ -252,22 +259,36 @@ $(function(){
       pixel.html("").removeClass('flag');
       flags_array = flags_array.removeArray([row,col]);
     }
-    $('.flags_left').text(flags_left())
+    $('.flags_left').text(numerize(flags_left()))
   }
 
   function checkWin() {
     if (row * col - $('.active').length == mines_array.length && !game_end ) { //no. of opened tiles == no of mines
-      $('.win').toggle();
+      win = true;
       gameEnd();
     }
   }
 
   function count_time() {
     time += 1
-    $('.timer').text(time)
+    $('.timer').text(numerize(time))
     timer = setTimeout(function() {
               count_time()
             }, 1000);
+
+  }
+
+  function numerize(num) {
+    var num_length = num.toString().length
+    if (num_length == 1) {
+      return "00" + num.toString()
+    } else if (num_length == 2) {
+      return "0" + num.toString()
+    } else if (num_length == 3) {
+      return num.toString()
+    } else {
+      return "999"
+    }
 
   }
 

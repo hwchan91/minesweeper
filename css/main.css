@@ -1,20 +1,82 @@
-.count_bar{
-  width: 600px;
-  margin: auto;
-  font-size: 18px;
-  font-weight: bold;
+@font-face {
+  font-family: 'crashed_scorboard';
+  src: url('Crashed_Scoreboard.ttf');
 }
 
-.timer_display {
-  float: right;
-  text-align: right;
+@font-face {
+ font-family:'digital-clock-font';
+ src: url('digital-7.ttf');
 }
+
+.title {
+  position: absolute;
+  top: 20px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  color: #c2cad6;
+}
+
+.board {
+  width: 920px;
+  height: 630px;
+  background-color: #9d9ea0;
+  margin: 50px auto;
+  padding: 10px;
+}
+
+.count_bar{
+  width: 906px;
+  height: 70px;
+  padding: 5px;
+  margin: 0px auto;
+  font-size: 18px;
+  font-family: 'crashed_scorboard';
+
+  background-color: #9d9ea0;
+  position: relative;
+}
+
+.restart {
+  width: 50px;
+  height: 50px;
+  margin: 5px auto;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 50px;
+  font-size: 150%;
+  background-color: #515151;
+  color: white;
+}
+
+
+.flags_left, .timer {
+  background-color: black;
+  color: red;
+  font-size: 36px;
+  padding: 5px;
+  position: absolute;
+  width: 90px;
+  text-align: center;
+}
+
+.flags_left {
+  top: 5px;
+  left: 5px;
+}
+
+.timer {
+  top: 5px;
+  right: 5px;
+}
+
 
 .box {
   border: 3px solid grey;
   display: table;
   collapse-border: collapse;
   margin: auto;
+  width: 906px;
+  height: 546px;
 
 }
 
@@ -22,28 +84,29 @@
   position: relative;
   overflow: hidden;
   float: left;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   border: 3px dotted #c905c6;
   border-image-source: linear-gradient(135deg, white 25%, #5e5d5d 75%);
   border-image-slice: 6;
   background-color: #c1bdbd;
-  line-height: 20px;
+  line-height: 30px;
   text-align: center;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: bold;
 }
 
 .rows {
-  margin-bottom: 0px;
-  margin-top: 0px;
+  margin: 0px auto;
   clear:both;
+
 }
 
 .active {
   border: 1px solid #5e5d5d;
   background-color: #c1bdbd;
-
+  font-family: 'digital-clock-font';
+  font-weight: bold;
 }
 
 .num1 {
@@ -97,23 +160,15 @@
 }
 
 
-.restart {
-  width: 100px;
-  height: 20px;
-  border: 1px solid black;
-  text-align: center;
-  margin: auto;
-}
-
 .cross:before, .cross:after {
     z-index: 1;
     position: absolute;
     content: '';
     background: red;
     display: block;
-    top: 8px;
-    left: -7px;
-    width: 28px;
+    top: 10px;
+    left: -10px;
+    width: 44px;
     height: 1px;
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
